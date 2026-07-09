@@ -1,16 +1,22 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
+import Upload from "./pages/Upload";
+import Chat from "./pages/Chat";
+import Login from "./pages/Login";
+
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white p-10 rounded-xl shadow-lg">
-        <h1 className="text-4xl font-bold text-blue-600">
-          Industrial Brain AI
-        </h1>
-
-        <p className="mt-4 text-gray-600">
-          ET AI Hackathon 2.0
-        </p>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/upload" element={<Upload />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
