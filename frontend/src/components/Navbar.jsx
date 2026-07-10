@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Navbar() {
   return (
     <nav
@@ -9,26 +11,60 @@ function Navbar() {
         background: "#111827",
       }}
     >
-      <h2 style={{ color: "#3b82f6" }}>
+      <h2 style={{ color: "#3b82f6", margin: 0 }}>
         Industrial Brain AI
       </h2>
 
       <div style={{ display: "flex", gap: "30px" }}>
-        <a href="/" style={{ color: "white", textDecoration: "none" }}>
+        <Link
+          to="/"
+          style={{
+            color: "white",
+            textDecoration: "none",
+          }}
+        >
           Home
-        </a>
+        </Link>
 
-        <a href="/dashboard" style={{ color: "white", textDecoration: "none" }}>
+        <Link
+          to="/dashboard"
+          style={{
+            color: "white",
+            textDecoration: "none",
+          }}
+        >
           Dashboard
-        </a>
+        </Link>
 
-        <a href="/upload" style={{ color: "white", textDecoration: "none" }}>
+        <Link
+          to="/upload"
+          style={{
+            color: "white",
+            textDecoration: "none",
+          }}
+        >
           Upload
-        </a>
+        </Link>
 
-        <a href="/chat" style={{ color: "white", textDecoration: "none" }}>
+        <Link
+          to="/chat"
+          style={{
+            color: "white",
+            textDecoration: "none",
+          }}
+        >
           AI Chat
-        </a>
+        </Link>
+
+        <Link
+          to="/login"
+          style={{
+            color: "white",
+            textDecoration: "none",
+          }}
+        >
+          Login
+        </Link>
       </div>
     </nav>
   );

@@ -1,17 +1,79 @@
+import { useState } from "react";
+
 function UploadBox() {
+  const [file, setFile] = useState(null);
+
+  function handleFileChange(e) {
+    setFile(e.target.files[0]);
+  }
+
+  function removeFile() {
+    setFile(null);
+  }
+
   return (
     <div
       style={{
-        border: "2px dashed #3b82f6",
-        padding: "50px",
-        borderRadius: "12px",
-        textAlign: "center",
-        color: "white",
+        background: "#1e293b",
+        padding: "40px",
+        borderRadius: "15px",
+        maxWidth: "700px",
+        margin: "auto",
       }}
     >
-      <h2>📂 Upload Documents</h2>
+      <input
+        type="file"
+        accept=".pdf"
+        onChange={handleFileChange}
+      />
 
-      <p>Drag & Drop PDFs here</p>
+      {file && (
+        <div
+          style={{
+            marginTop: "30px",
+            background: "#334155",
+            padding: "20px",
+            borderRadius: "10px",
+          }}
+        >
+          <h3>Selected File</h3>
+
+          <p>{file.name}</p>
+
+          <p>{(file.size / 1024).toFixed(2)} KB</p>
+
+          <button
+            onClick={removeFile}
+            style={{
+              marginTop: "15px",
+              background: "red",
+              color: "white",
+              border: "none",
+              padding: "10px 20px",
+              borderRadius: "8px",
+              cursor: "pointer",
+            }}
+          >
+            Remove
+          </button>
+        </div>
+      )}
+
+      <button
+        style={{
+          marginTop: "30px",
+          width: "100%",
+          background: "#2563eb",
+          color: "white",
+          padding: "15px",
+          border: "none",
+          borderRadius: "10px",
+          cursor: "pointer",
+          fontSize: "18px",
+        }}
+      >
+        Upload PDF
+      </button>
     </div>
   );
 }
